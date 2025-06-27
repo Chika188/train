@@ -249,7 +249,8 @@
 <script>
 
     // 接口请求函数
-    async function loadNews(page = 1, pageSize = parseInt(document.getElementById('pageSizeSelect').value)) {
+    // 修改loadNews函数参数解析
+    async function loadNews(page = parseInt(new URL(window.location.href).searchParams.get('page')) || 1, pageSize = parseInt(document.getElementById('pageSizeSelect').value)) {
         try {
             const response = await fetch(`http://localhost:8080/news?page=${page}&pageSize=${pageSize}`);
             const { data, links } = await response.json();
@@ -321,11 +322,26 @@
             if (current < totalPages) loadNews(current + 1);
         });
 
+        // 在分页事件处理中添加URL更新
         document.querySelectorAll('.page-item').forEach(btn => {
             btn.addEventListener('click', () => {
                 const page = parseInt(btn.textContent);
+                history.replaceState(null, '', `?page=${page}`);
                 if (page !== current) loadNews(page);
             });
+        });
+    
+        // 在prev/next按钮添加URL更新
+        document.querySelector('.page-prev').addEventListener('click', () => {
+            const newPage = current - 1;
+            history.replaceState(null, '', `?page=${newPage}`);
+            if (current > 1) loadNews(newPage);
+        });
+    
+        document.querySelector('.page-next').addEventListener('click', () => {
+            const newPage = current + 1;
+            history.replaceState(null, '', `?page=${newPage}`);
+            if (current < totalPages) loadNews(newPage);
         });
 
         // 更新按钮状态
