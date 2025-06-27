@@ -263,6 +263,11 @@
             data.forEach(item => {
                 const newsItem = document.createElement('div');
                 newsItem.className = 'news-item';
+                // 添加点击事件
+                newsItem.addEventListener('click', () => {
+                    window.location.href = `../news-detail/news-detail.html?id=${item.id}`;
+                });
+                
                 newsItem.innerHTML = `
                     <div class="news-item-image blur-load" style="position:relative">
                      <img 
@@ -330,14 +335,14 @@
                 if (page !== current) loadNews(page);
             });
         });
-    
+
         // 在prev/next按钮添加URL更新
         document.querySelector('.page-prev').addEventListener('click', () => {
             const newPage = current - 1;
             history.replaceState(null, '', `?page=${newPage}`);
             if (current > 1) loadNews(newPage);
         });
-    
+
         document.querySelector('.page-next').addEventListener('click', () => {
             const newPage = current + 1;
             history.replaceState(null, '', `?page=${newPage}`);
