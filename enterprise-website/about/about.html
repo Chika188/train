@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /* 关于我们 */
+        .about-container {
+            padding: 40px 0;
+        }
+
+        .about-title {
+            font-family: Microsoft YaHei UI;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-title-line {
+            width: 128px;
+            height: 6px;
+            background: #FF350D;
+            margin: 36px auto;
+        }
+
+        /*  */
+        .about-container {
+            width: 1560px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding-bottom: 180px;
+        }
+
+
+        .about-content {
+            max-width: 1560px;
+            height: 310px;
+            margin: 40px auto 60px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+
+        .map-container {
+            flex: 1;
+            min-width: 400px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .company-title {
+            font-family: Microsoft YaHei UI;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 28px;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .description-block {
+            /* background: #f8f9fa; */
+            /* padding: 20px; */
+            border-radius: 8px;
+        }
+
+        .company-description {
+            font-family: Microsoft YaHei UI;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 28px;
+            color: #666;
+            margin: 0 0 16px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            /* background: #f8f9fa; */
+            /* padding: 20px; */
+            border-radius: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: Microsoft YaHei UI;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 28px;
+            color: #333;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .map-container {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav -->
+    <iframe src="../news/common-nav.html"
+        style="width:1920px; height:100px; border:none; overflow:hidden;margin-bottom: 110px;" scrolling="no"></iframe>
+
+    <!--  -->
+    <div class="about">
+
+        <div class="about-title">
+            关于我们
+        </div>
+        <div class="about-title-line"></div>
+        <div class="about-content">
+            <div class="content-wrapper">
+                <!-- 地图区域 -->
+                <div class="map-container">
+                    <iframe
+                        src="https://map.baidu.com/search/%E7%89%B9%E5%8A%9B%E6%9E%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%8E%A6/@13274720.46446985,2987433.9456356,19z?querytype=s&da_src=shareurl&wd=%E7%89%B9%E5%8A%9B%E6%9E%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%8E%A6&c=131&src=0&wd2=%E7%A6%8F%E5%B7%9E%E5%B8%82%E4%BB%93%E5%B1%B1%E5%8C%BA&pn=0&sug=1&l=13&b=(12914621.130000003,4802125.21;12975805.130000003,4832909.21)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&sug_forward=a0792cddeb9ddc68c26c14ff&device_ratio=1"
+                        frameborder="0" style="width: 100%; height: 310px;">
+                    </iframe>
+                </div>
+
+                <!-- 公司介绍区域 -->
+                <div class="info-container">
+                    <h1 class="company-title">一家专注系统高端定制开发的公司</h1>
+                    <div class="description-block">
+                        <p class="company-description">
+                            互联网指的是是网络与网络之间所串连成的庞大网络，这些网络以一组通用的协议相连，形成逻辑上的单一巨大国际网络。
+                            互联网始于1969年美国的阿帕网。这种将计算机网络互相联接在一起的方法可称作"网络互联"，在这基础上发展出覆盖全世界的全球性互联网络称互联网，即是互相连接一起的网络结构。
+                        </p>
+                        <p class="company-description">
+                            我们出色的专业开发团队扎实的技术支持，优质高效的服务意识和丰厚的资源优势，提供专业的网站建设，微信小程序，APP开发，等技术服务。成果，专注于为客户提供专业有效的互联网系统解决方案。
+                        </p>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="assets/location-icon.png" alt="地址" class="icon">
+                            <span>地址：中国山东省青岛市市南区某某中路20号</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="assets/email-icon.png" alt="邮箱" class="icon">
+                            <span>邮箱：1370XXX171@qq.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <img src="assets/phone-icon.png" alt="电话" class="icon">
+                            <span>电话：0591-88888888</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- 联系我们 -->
+        <iframe src="../index/contact-us/contact-us.html"
+            style="width:1920px; height:220px; border:none; overflow:hidden; margin-top: 40px;" scrolling="no"></iframe>
+    </div>
+</body>
+
+</html>

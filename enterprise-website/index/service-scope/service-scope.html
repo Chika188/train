@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .service-bg {
+            position: relative;
+            width: 1920px;
+            height: 1000px;
+            background: linear-gradient(to bottom, white 0%, #F6F6F6 100%);
+        }
+
+        .service-bg-title {
+            position: absolute;
+            width: 900px;
+            height: 163px;
+            top: 100px;
+            left: 54px;
+            border-width: 1px;
+
+
+            font-family: Microsoft YaHei UI;
+            text-shadow:
+                -2px 0 #F6F6F6,
+                0 2px #F6F6F6,
+                2px 0 #F6F6F6,
+                0 -2px #F6F6F6;
+            -webkit-text-stroke: 2px F6F6F6;
+            font-weight: 400;
+            font-size: 128px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            color: white;
+
+        }
+
+        .service-title {
+            position: absolute;
+            width: 192px;
+            height: 61px;
+            top: 200px;
+            left: 172px;
+
+            font-family: Microsoft YaHei UI;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+
+        .service-content {
+            position: absolute;
+            width: 703px;
+            height: 450px;
+            top: 260px;
+            left: 172px;
+
+
+            font-family: Microsoft YaHei UI;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 45px;
+            letter-spacing: 0%;
+            color: #8B8B8B;
+
+        }
+
+        .service-img-one {
+            position: absolute;
+            width: 700px;
+            height: 600px;
+            top: 180px;
+            left: 1220px;
+        }
+
+        .service-img-two {
+            position: absolute;
+            width: 256px;
+            height: 256px;
+            left: 932px;
+            top: 526px;
+        }
+
+        .service-img-three {
+            position: absolute;
+            width: 460px;
+            height: 300px;
+            top: 812px;
+            left: 1460px;
+
+        }
+
+        .service-img-four {
+            position: absolute;
+            width: 658px;
+            height: 484px;
+            left: 770px;
+            top: 812px;
+        }
+
+
+        /* 文字滑入动画 */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* 图片渐显动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .service-title,
+        .service-content {
+            animation: slideInRight 0.5s ease-out forwards;
+        }
+
+        .service-img-one,
+        .service-img-two,
+        .service-img-three,
+        .service-img-four {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="service-bg">
+        <div class="service-bg-title">Service scope
+            <img src="../../assets/ilustra-cicle.png" alt="">
+        </div>
+        <div class="service-title">
+            服务范围
+        </div>
+        <div class="service-content">
+            <p>依托百度政务混合云，汇聚城市管理及公安等政务领域的自有数据及互联网公开数据，基于百度大数据多年积累的行业模型及实战经验，提供从数据整合治理到分析挖掘的一站式大数据解决方案，助力智慧政务新时代。</p>
+            <p>全渠道零售方案包括B2C、O2O、B2B的场景，提供APP/小程序，支持对接饿了么、美团等第三方外卖平台，基于阿里巴巴多年沉淀的业务中台技术，建立商品、会员、交易、营销等共享服务中心，实现全渠道数据的共享和一致，帮助零售商打造线上、线下无差别的全渠道销售能力。
+            </p>
+        </div>
+
+        <!--   -->
+        <div class="service-img-one">
+            <img src="../../assets/Rectangle 4.png" alt="">
+        </div>
+        <div class="service-img-two">
+            <img src="../../assets/Rectangle 5.png" alt="">
+        </div>
+        <div class="service-img-three">
+            <img src="../../assets/Rectangle 6.png" alt="">
+        </div>
+        <div class="service-img-four">
+            <img src="../../assets/Rectangle 7.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

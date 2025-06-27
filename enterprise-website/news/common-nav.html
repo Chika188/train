@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+                body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .nav-container {
+            height: 100px;
+            position: relative;
+            background-color: #252429;
+            color: white;
+            margin-bottom: 115px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 32px;
+            left: 48px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 24px;
+            width: auto;
+        }
+
+        .nav-grid {
+            position: absolute;
+            left: 1310px;
+            top: 32px;
+            display: flex;
+            gap: 70px;
+        }
+
+        .nav-item {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-item:hover::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 2px;
+            background: #FF350D;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 2px;
+            background: #FF350D;
+        }
+    </style>
+</head>
+<body>
+        <div class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="">
+                <div class="logo-text">企业站</div>
+            </div>
+
+            <div class="nav-grid">
+                <div class="nav-item" data-target="../index/index.html">首页</div>
+                <div class="nav-item" data-target="../news/news.html">新闻列表页</div>
+                <div class="nav-item" data-target="../about/about.html">关于我们</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function () {
+            window.open(this.dataset.target, '_blank');
+        });
+    });
+
+</script>
+</html>
