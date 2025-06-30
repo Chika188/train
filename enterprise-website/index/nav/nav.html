@@ -20,8 +20,8 @@
 
         .logo {
             position: absolute;
-            top: 32px;
-            left: 48px;
+            /* top: 32px;
+            left: 48px; */
             display: flex;
             align-items: center;
             gap: 10px;
@@ -74,8 +74,8 @@
 
 <body>
     <div class="nav">
-        <div class="nav-container">
-            <div class="logo">
+        <div class="nav-container ">
+            <div class="logo max-lg:top-[15px] max-lg:left-[25px] lg:top-[32px] lg:left-[48px]">
                 <img src="../../assets/logo.png" alt="">
                 <div class="logo-text">企业站</div>
             </div>
@@ -85,13 +85,13 @@
             <div
                 class="nav-drawer fixed top-0 left-0 h-full w-64 bg-black shadow-xl transform -translate-x-full transition-transform duration-300 lg:hidden">
                 <div class="p-6 space-y-4 h-full">
-                    <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../index/index.html">首页</div>
-                    <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../news/news.html">新闻列表页</div>
-                    <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../about/about.html">关于我们</div>
+                    <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../index.html">首页</div>
+                    <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../../news/news.html">新闻列表页</div>
+                    <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../../about/about.html">关于我们</div>
                 </div>
             </div>
             <!--  添加汉堡按钮 -->
-            <div class="lg:hidden max-lg:fixed max-lg:top-4 max-lg:right-4">
+            <div class="lg:hidden max-lg:fixed max-lg:-top-4  max-lg:right-1">
                 <button id="menuBtn"
                     class="p-5 rounded-lg text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors">
                     ☰

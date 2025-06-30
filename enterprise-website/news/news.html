@@ -125,20 +125,52 @@
             }
         }
 
+        /* 修改现有媒体查询 */
         @media (max-width: 768px) {
             .news-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px;
+                width: 100%;
+                padding: 0 12px;
+                margin-bottom: 20px;
+            }
+
+            .news-item {
+                width: 100%;
+                height: auto;
+                padding-bottom: 20px;
+            }
+
+            .news-item-title {
+                font-size: clamp(14px, 3.5vw, 16px);
+                line-height: 1.4;
+                height: auto;
+                margin-bottom: 5px;
+            }
+
+            .news-item-content {
+                font-size: clamp(12px, 3vw, 14px);
+                line-height: 1.5;
+                height: auto;
+                padding: 0 12px;
+            }
+
+            .news-item-image {
+                height: 50vw;
             }
         }
 
         .pagination-tool {
+            width: 100vw;
+            box-sizing: border-box;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .pagination-controls {
-            display: flex;
+            /* display: flex; */
             align-items: center;
             gap: 20px;
         }
@@ -153,7 +185,7 @@
 
         .page-jump {
             margin-left: 10px;
-            display: flex;
+            /* display: flex; */
             align-items: center;
             gap: 8px;
             font-family: Microsoft YaHei UI;
@@ -221,18 +253,17 @@
 
         <!-- 分页选择器 -->
         <div class="pagination-tool">
-            <div class="pagination-controls">
+            <div class="pagination-controls md:flex max-md:hidden">
                 <select id="pageSizeSelect" class="page-size-select">
                     <option value="8">8条/页</option>
                     <option value="16">16条/页</option>
                 </select>
-                <div class="pagination"></div>
             </div>
             <!-- 分页 -->
             <div class="pagination">
             </div>
             <!--  -->
-            <div class="page-jump">
+            <div class="page-jump md:flex max-md:hidden">
                 <span>前往第</span>
                 <input type="number" id="pageJumpInput" min="1" :max="totalPages">
                 <span>页</span>
