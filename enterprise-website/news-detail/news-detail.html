@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>新闻内容页</title>
     <style>
         body {
@@ -29,7 +30,7 @@
         }
 
         .detail-content {
-            width: 1520px;
+            /* width: 1520px; */
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -70,21 +71,21 @@
 <body>
     <!-- nav -->
     <iframe src="../news/common-nav.html"
-        style="width:1920px; height:100px; border:none; overflow:hidden;margin-bottom: 110px;" scrolling="no"></iframe>
+        style="width:100vw; height:215px; border:none; overflow:hidden;" scrolling="no"></iframe>
 
     <!--  -->
     <div class="detail">
-
         <div class="detail-title">
             新闻详情页
         </div>
         <div class="detail-title-line"></div>
-        <div class="detail-content">
+        <div class="detail-content w-[1520px] 
+            max-md:w-[696px] max-md:px-5  md:w-[90%] md:max-w-[900px]  lg:w-[1520px] lg:max-w-none
+            mx-auto flex flex-col items-center">
             <div class="detail-content-img">
                 <img src="" alt="">
             </div>
             <div class="detail-content-title">
-                把小我融入大我，立志作出我们这一代人的历史贡献
             </div>
             <div class="detail-content-text">
                 2022年05月24日 11:35　来源：人民日报
@@ -109,7 +110,7 @@
 
     <!-- 联系我们 -->
     <iframe src="../index/contact-us/contact-us.html"
-        style="width:1920px; height:220px; border:none; overflow:hidden; margin-top: 40px;" scrolling="no"></iframe>
+        style="width:100vw; height:220px; border:none; overflow:hidden; margin-top: 40px;" scrolling="no"></iframe>
 </body>
 
 
@@ -120,11 +121,11 @@
             const queryString = window.location.search;
 
             const newsId = queryString.split('=')[1];
-            
+
             const response = await fetch(`http://localhost:8080/news/${newsId}`);
             const newsData = await response.json();
             console.log(newsData);
-            
+
 
             // 更新DOM元素
             document.querySelector('.detail-content-img img').src = `../assets/${newsData.data.img}`;

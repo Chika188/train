@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
 
     <style>
@@ -13,14 +14,14 @@
 
         .service-bg {
             position: relative;
-            width: 1920px;
+            width: 100vw;
             height: 1000px;
             background: linear-gradient(to bottom, white 0%, #F6F6F6 100%);
         }
 
         .service-bg-title {
             position: absolute;
-            width: 900px;
+            /* width: 900px; */
             height: 163px;
             top: 100px;
             left: 54px;
@@ -145,6 +146,45 @@
             opacity: 0;
             animation: fadeIn 0.5s ease-in-out forwards;
         }
+
+
+        @media (max-width: 768px) {
+
+            .service-bg-title {
+                font-size: 64px;
+            }
+
+            .service-content {
+                left: 0;
+                padding: 0 20px;
+                width: auto;
+                font-size: 16px;
+            }
+
+            .service-container {
+                transform: scale(0.6);
+            }
+
+            .service-img-one {
+                left: calc(1220px - 1100px);
+                top: calc(180px + 1000px);
+            }
+
+            .service-img-two {
+                left: calc(932px - 1100px);
+                top: calc(526px + 1000px);
+            }
+
+            .service-img-three {
+                left: calc(1460px - 1100px);
+                top: calc(812px + 1000px);
+            }
+
+            .service-img-four {
+                left: calc(770px - 1100px);
+                top: calc(812px + 1000px);
+            }
+        }
     </style>
 </head>
 
@@ -163,17 +203,19 @@
         </div>
 
         <!--   -->
-        <div class="service-img-one">
-            <img src="../../assets/Rectangle 4.png" alt="">
-        </div>
-        <div class="service-img-two">
-            <img src="../../assets/Rectangle 5.png" alt="">
-        </div>
-        <div class="service-img-three">
-            <img src="../../assets/Rectangle 6.png" alt="">
-        </div>
-        <div class="service-img-four">
-            <img src="../../assets/Rectangle 7.png" alt="">
+        <div class="service-container">
+            <div class="service-img-one">
+                <img src="../../assets/Rectangle 4.png" alt="">
+            </div>
+            <div class="service-img-two">
+                <img src="../../assets/Rectangle 5.png" alt="">
+            </div>
+            <div class="service-img-three">
+                <img src="../../assets/Rectangle 6.png" alt="">
+            </div>
+            <div class="service-img-four">
+                <img src="../../assets/Rectangle 7.png" alt="">
+            </div>
         </div>
     </div>
 </body>

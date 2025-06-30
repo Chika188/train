@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>新闻列表页</title>
 
     <style>
@@ -68,7 +69,7 @@
         }
 
         .news-item-title {
-            height: 72px;
+            height: 95px;
             padding: 18px;
             font-family: 'Microsoft YaHei UI';
             font-weight: 600;
@@ -203,8 +204,8 @@
 
 <body>
     <!-- nav -->
-    <iframe src="../news/common-nav.html"
-        style="width:1920px; height:100px; border:none; overflow:hidden;margin-bottom: 110px;" scrolling="no"></iframe>
+    <iframe src="../news/common-nav.html" style="width:100vw; height:215px; border:none; overflow:hidden;"
+        scrolling="no"></iframe>
 
 
     <!-- 新闻列表 -->
@@ -241,8 +242,7 @@
 
     <!-- 联系我们 -->
     <iframe src="../index/contact-us/contact-us.html"
-        style="width:1920px; height:220px; border:none; overflow:hidden; margin-top: 40px;" scrolling="no"></iframe>
-    </div>
+        style="width:100vw; height:220px; border:none; overflow:hidden; margin-top: 40px;" scrolling="no"></iframe>
 </body>
 
 
@@ -267,7 +267,7 @@
                 newsItem.addEventListener('click', () => {
                     window.location.href = `../news-detail/news-detail.html?id=${item.id}`;
                 });
-                
+
                 newsItem.innerHTML = `
                     <div class="news-item-image blur-load" style="position:relative">
                      <img 

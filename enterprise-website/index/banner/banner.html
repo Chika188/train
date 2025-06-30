@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
     <style>
         body {
             margin: 0;
@@ -9,15 +13,16 @@
         }
 
         .carousel {
-            width: 1920px;
-            height: 800px;
+            width: 100vw;
+            /* height: 800px; */
+            height: 42vw;
             overflow: hidden;
             position: relative;
         }
 
         .slides {
             position: relative;
-            height: 800px;
+            /* height: 800px; */
         }
 
         .slide {
@@ -74,13 +79,13 @@
         /* 添加文字容器样式 */
         .slide-text {
             position: absolute;
-            top: 272px;
+            /* top: 272px; */
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
             font-family: 'Microsoft YaHei UI';
             font-weight: 600;
-            font-size: 80px;
+            /* font-size: 80px; */
             line-height: 100%;
             letter-spacing: 0;
             color: white;
@@ -89,14 +94,14 @@
 
         .slide-content {
             position: absolute;
-            top: 400px;
+            /* top: 400px; */
             left: 50%;
             transform: translateX(-50%);
-            max-width: 1496px;
+            max-width: 80vw;
             width: 100%;
             padding: 0 20px;
             color: white;
-            font-size: 24px;
+            /* font-size: 24px; */
             line-height: 1.5;
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -109,22 +114,28 @@
         <div class="slides">
             <div class="slide">
                 <img src="../../assets/banner1.png">
-                <div class="slide-text">开启互联网+ 从我们开始</div>
-                <div class="slide-content">
+                <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[12vw] ">
+                    开启互联网+ 从我们开始</div>
+                <div class="slide-content  mt-6
+        text-[2vw] md:text-[1.8vw] lg:text-[1.5vw]  top-[17vw]">
                     域名主机，网站建设，云服务器，企业邮箱一站式解决
                 </div>
             </div>
             <div class="slide">
                 <img src="../../assets/banner2.png">
-                <div class="slide-text">关于我们</div>
-                <div class="slide-content">
+                <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[12vw] ">
+                    关于我们</div>
+                <div class="slide-content  mt-6
+        text-[2vw] md:text-[1.8vw] lg:text-[1.5vw]  top-[17vw] ">
                     企业构建互联网信息技术服务平台，领先技术变革，提升产业效率，致力于使能软件企业引领发展，服务制造企业转型升级，为政企客户提供“多快好省”的信息技术服务。
                 </div>
             </div>
             <div class="slide">
                 <img src="../../assets/banner3.png">
-                <div class="slide-text">新闻中心</div>
-                <div class="slide-content">
+                <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[12vw] ">
+                    新闻中心</div>
+                <div class="slide-content  mt-6
+        text-[2vw] md:text-[1.8vw] lg:text-[1.5vw]  top-[17vw] ">
                     几乎所有的伟大成就，都是团队集体协作追求远大目标的结果。这些团队的领导者挑选了团队的成员，并激励他们追求自己不敢想象的成就。
                 </div>
             </div>

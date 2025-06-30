@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Document</title>
 
     <style>
@@ -13,7 +14,7 @@
         }
 
         .top-section {
-            width: 1920px;
+            width: 100vw;
             height: 300px;
             display: flex;
             flex-direction: column;
@@ -35,10 +36,10 @@
         }
 
         .bottom-section {
-            width: 1920px;
-            height: 900px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            width: 100vw;
+            /* height: 900px; */
+            /* display: grid; */
+            /* grid-template-columns: repeat(3, 1fr); */
         }
 
         .member-card {
@@ -119,8 +120,8 @@
         <div class="divider"></div>
     </div>
 
-    <div class="bottom-section">
-        <div class="member-card">
+    <div class="bottom-section grid grid-cols-3  max-lg:grid-cols-1">
+        <div class="member-card mx-auto">
             <img src="../../assets/teacher1.png" width="640">
             <div class="member-info">
                 <div class="member-name">Jon Smith</div>
@@ -129,7 +130,7 @@
             </div>
         </div>
 
-        <div class="member-card">
+        <div class="member-card mx-auto">
             <img src="../../assets/teacher2.png" width="640">
             <div class="member-info">
                 <div class="member-name">Jon Smith</div>
@@ -138,7 +139,7 @@
             </div>
         </div>
 
-        <div class="member-card">
+        <div class="member-card mx-auto">
             <img src="../../assets/teacher3.png" width="640">
             <div class="member-info">
                 <div class="member-name">Jon Smith</div>

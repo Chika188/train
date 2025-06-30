@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>首页</title>
 
   <style>
@@ -15,11 +16,11 @@
 
 
     .parallax-section {
-      width: 1920px;
+      width: 100vw;
       height: 520px;
       background: url('../assets/Group 27.png') center/cover fixed;
       position: relative;
-      display: flex;
+      /* display: flex; */
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -50,16 +51,16 @@
 
 <body>
   <!-- nav -->
-  <iframe src="./nav/nav.html" style="width:1920px; height:70px; border:none; overflow:hidden;position: absolute"
+  <iframe src="./nav/nav.html" style="width:100vw; height:215px; border:none; overflow:hidden;position: absolute"
     scrolling="no"></iframe>
   <!-- 轮播图容器 -->
-  <iframe src="./banner/banner.html" style="width:1920px; height:800px; border:none; overflow:hidden"
+  <iframe src="./banner/banner.html" style="width:100vw; height:42vw; border:none; overflow:hidden"
     scrolling="no"></iframe>
   <!-- 服务范围 -->
-  <iframe src="./service-scope/service-scope.html" style="width:1920px; height:1500px; border:none; overflow:hidden"
+  <iframe src="./service-scope/service-scope.html" style="width:100vw; height:1500px; border:none; overflow:hidden"
     scrolling="no"></iframe>
   <!-- 企业文化 -->
-  <div class="parallax-section">
+  <div class="parallax-section flex max-md:hidden">
     <h2 class="title">企业文化</h2>
     <div class="divider"></div>
     <p class="content">
@@ -70,16 +71,17 @@
     </p>
   </div>
   <!-- 团队介绍 -->
-  <iframe src="./team-Introduction/team-Introduction.html"
-    style="width:1920px; height:1200px; border:none; overflow:hidden" scrolling="no"></iframe>
+  <iframe src="./team-Introduction/team-Introduction.html" class="w-screen lg:h-[1200px] max-lg:h-[3000px]" 
+    style="width:100vw; border:none; overflow:hidden " scrolling="no"></iframe>
 
 
   <!-- 新闻动态 -->
-  <iframe src="./news-pdate/news-pdate.html" style="width:1920px; height:1200px; border:none; overflow:hidden"
-    scrolling="no"></iframe>
+  <iframe src="./news-pdate/news-pdate.html"
+    class="w-screen lg:h-[1200px] max-lg:h-[1900px] max-md:h-[3500px] border-none" scrolling="no"
+    style="width:100vw; border:none; overflow:hidden;  background: #252429" scrolling="no"></iframe>
 
   <!-- 联系我们 -->
-  <iframe src="./contact-us/contact-us.html" style="width:1920px; height:220px; border:none; overflow:hidden"
+  <iframe src="./contact-us/contact-us.html" style="width:100vw; height:220px; border:none; overflow:hidden"
     scrolling="no"></iframe>
 </body>
 
