@@ -14,8 +14,6 @@
       padding: 0;
     }
 
-
-
     .parallax-section {
       width: 100vw;
       height: 520px;
@@ -47,19 +45,120 @@
       text-align: center;
       font-size: 16px;
     }
+
   </style>
+  <link rel="stylesheet" href="./nav/nav.css">
+  <link rel="stylesheet" href="./banner/banner.css">
+  <link rel="stylesheet" href="./service-scope/service-scope.css">
+  <link rel="stylesheet" href="./team-Introduction/team-Introduction.css">
+  <link rel="stylesheet" href="./news-pdate/news-pdate.css">
 </head>
 
 <body>
   <!-- nav -->
-  <iframe src="./nav/nav.html" style="width:100vw; height:215px; border:none; overflow:hidden;position: absolute"
-    scrolling="no"></iframe>
+  <div class="nav" style="width:100vw; height:215px; border:none; overflow:hidden;position: absolute; z-index: 2;">
+    <div class="nav-container ">
+      <div class="logo max-lg:top-[15px] max-lg:left-[25px] lg:top-[32px] lg:left-[48px]">
+        <img src="../assets/logo.png" alt="">
+        <div class="logo-text">企业站</div>
+      </div>
+
+      <!-- 添加抽屉容器 -->
+      <div
+        class="nav-drawer fixed top-0 left-0 h-full w-64 bg-black shadow-xl transform -translate-x-full transition-transform duration-300 lg:hidden">
+        <div class="p-6 space-y-4 h-full">
+          <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="./index.html">首页</div>
+          <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../news/news.html">新闻列表页
+          </div>
+          <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../about/about.html">关于我们
+          </div>
+        </div>
+      </div>
+      <!--  添加汉堡按钮 -->
+      <div class="lg:hidden max-lg:fixed max-lg:-top-4  max-lg:right-1">
+        <button id="menuBtn" class="p-5 rounded-lg text-white rounded-full  hover:bg-blue-600 transition-colors">
+          ☰
+        </button>
+      </div>
+
+      <div class="nav-grid max-lg:hidden lg:flex">
+        <div class="nav-item" data-target="./index.html">首页</div>
+        <div class="nav-item" data-target="../news/news.html">新闻列表页</div>
+        <div class="nav-item" data-target="../about/about.html">关于我们</div>
+      </div>
+    </div>
+  </div>
   <!-- 轮播图容器 -->
-  <iframe src="./banner/banner.html" style="width:100vw; height:42vw; border:none; overflow:hidden"
-    scrolling="no"></iframe>
+  <div class="carousel" style="width:100vw; border:none; overflow:hidden" scrolling="no">
+    <div class="slides">
+      <div class="slide">
+        <img class="slides-img" src="../assets/banner1.png" loading="lazy">
+        <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[20vw] ">
+          开启互联网+ 从我们开始</div>
+        <div class="slide-content  mt-6
+        text-[2vw] md:text-[1.8vw] lg:text-[1.5vw]  top-[22vw]">
+          域名主机，网站建设，云服务器，企业邮箱一站式解决
+        </div>
+      </div>
+      <div class="slide">
+        <img class="slides-img" src="../assets/banner2.png" loading="lazy">
+        <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[20vw] ">
+          关于我们</div>
+        <div class="slide-content  mt-6
+        text-[2vw] md:text-[1.8vw] lg:text-[1.5vw]  top-[22vw] ">
+          企业构建互联网信息技术服务平台，领先技术变革，提升产业效率，致力于使能软件企业引领发展，服务制造企业转型升级，为政企客户提供“多快好省”的信息技术服务。
+        </div>
+      </div>
+      <div class="slide">
+        <img class="slides-img" src="../assets/banner3.png" loading="lazy">
+        <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[20vw] ">
+          新闻中心</div>
+        <div class="slide-content  mt-6
+        text-[2vw] md:text-[1.8vw] lg:text-[1.5vw]  top-[22vw] ">
+          几乎所有的伟大成就，都是团队集体协作追求远大目标的结果。这些团队的领导者挑选了团队的成员，并激励他们追求自己不敢想象的成就。
+        </div>
+      </div>
+    </div>
+
+    <div class="left-dots">
+      <span class="dot active  w-[10px] h-[10px]   max-md:w-[5px] max-md:h-[5px]"></span>
+      <span class="dot  w-[10px] h-[10px]   max-md:w-[5px] max-md:h-[5px]"></span>
+      <span class="dot  w-[10px] h-[10px]   max-md:w-[5px] max-md:h-[5px]"></span>
+    </div>
+  </div>
   <!-- 服务范围 -->
-  <iframe src="./service-scope/service-scope.html" class="md:h-[1500px] max-md:h-[1200px]"
-    style="width:100vw; border:none; overflow:hidden" scrolling="no"></iframe>
+  <div class="md:h-[1500px] max-md:h-[1200px]" style="width:100vw; border:none; overflow:hidden">
+    <div class="service-bg">
+      <div class="service-bg-title">Service scope
+        <img src="../assets/ilustra-cicle.png" alt="">
+      </div>
+      <div class="service-title">
+        服务范围
+      </div>
+      <div class="service-content">
+        <p>依托百度政务混合云，汇聚城市管理及公安等政务领域的自有数据及互联网公开数据，基于百度大数据多年积累的行业模型及实战经验，提供从数据整合治理到分析挖掘的一站式大数据解决方案，助力智慧政务新时代。</p>
+        <p>
+          全渠道零售方案包括B2C、O2O、B2B的场景，提供APP/小程序，支持对接饿了么、美团等第三方外卖平台，基于阿里巴巴多年沉淀的业务中台技术，建立商品、会员、交易、营销等共享服务中心，实现全渠道数据的共享和一致，帮助零售商打造线上、线下无差别的全渠道销售能力。
+        </p>
+      </div>
+
+      <!--   -->
+      <div class="service-container">
+        <div class="service-img-one">
+          <img src="../assets/Rectangle 4.png" alt="">
+        </div>
+        <div class="service-img-two">
+          <img src="../assets/Rectangle 5.png" alt="">
+        </div>
+        <div class="service-img-three">
+          <img src="../assets/Rectangle 6.png" alt="">
+        </div>
+        <div class="service-img-four">
+          <img src="../assets/Rectangle 7.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- 企业文化 -->
   <div class="parallax-section flex max-md:hidden">
     <h2 class="title">企业文化</h2>
@@ -72,19 +171,87 @@
     </p>
   </div>
   <!-- 团队介绍 -->
-  <iframe src="./team-Introduction/team-Introduction.html"
-    class="w-screen lg:h-[1200px] max-lg:h-[3000px] max-sm:h-[1900px] "
-    style="width:100vw; border:none; overflow:hidden " scrolling="no"></iframe>
+  <div class="w-screen lg:h-[1200px] max-lg:h-[3000px] max-sm:h-[1900px] "
+    style="width:100vw; border:none; overflow:hidden ">
+    <div class="top-section">
+      <div class="title" style="color: black;">团队介绍</div>
+      <div class="divider"></div>
+    </div>
 
+    <div class="bottom-section grid grid-cols-3  max-lg:grid-cols-1">
+      <div class="member-card mx-auto">
+        <img src="../assets/teacher1.png">
+        <div class="member-info">
+          <div class="member-name">Jon Smith</div>
+          <div class="member-desc">特级教师，从事教育工作10年</div>
+          <div class="member-desc">More information</div>
+        </div>
+      </div>
 
+      <div class="member-card mx-auto">
+        <img src="../assets/teacher2.png">
+        <div class="member-info">
+          <div class="member-name">Jon Smith</div>
+          <div class="member-desc">特级教师，从事教育工作10年</div>
+          <div class="member-desc">More information</div>
+        </div>
+      </div>
+
+      <div class="member-card mx-auto">
+        <img src="../assets/teacher3.png">
+        <div class="member-info">
+          <div class="member-name">Jon Smith</div>
+          <div class="member-desc">特级教师，从事教育工作10年</div>
+          <div class="member-desc">More information</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- 新闻动态 -->
-  <iframe src="./news-pdate/news-pdate.html"
-    class="w-screen lg:h-[1200px] max-lg:h-[1900px] max-md:h-[3500px] border-none" scrolling="no"
-    style="width:100vw; border:none; overflow:hidden;  background: #252429" scrolling="no"></iframe>
+  <div class="w-screen lg:h-[1200px] max-lg:h-[1900px] max-md:h-[3500px] border-none"
+    style="width:100vw; border:none; overflow:hidden;  background: #252429">
+    <div class="news-section">
+      <!-- 上部 -->
+      <div class="header">
+        <div class="header-title">新闻动态</div>
+        <div class="red-line"></div>
+      </div>
 
+      <!-- 下部 -->
+      <div class="news-grid lg:flex lg:justify-between lg:h-[900px]
+                grid grid-cols-3 gap-8
+                max-lg:grid-cols-2
+                max-md:grid-cols-1">
+        <div class="news-card">
+          <img src="../assets/news1.png">
+          <h3>2022百度AI大会前夕，解读百度大脑的半年“豹变”</h3>
+          <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。</p>
+        </div>
+        <div class="news-card">
+          <img src="../assets/news2.png">
+          <h3>创投早报｜美国商业化核聚变创企获投；音乐版权公司完成融资</h3>
+          <p>举办第六届中华印制大奖颁奖典礼、亚洲印刷展览联盟会议、国家主题日等多场专业、先进、丰富的同期活动，全面把握产业趋势与动态，共同探讨印刷业现状和未来。</p>
+        </div>
+        <div class="news-card">
+          <img src="../assets/news3.png"> 
+          <h3>【千龙网】广告行业标准指导性意见将出台</h3>
+          <p>国际印刷工业发展论坛由中国印刷及设备器材工业协会主办，始创于2005年，四年一届，已成功举办三届，每届论坛选择5-6个发达国家和5-6个发展中国家印刷协会的主席或总裁发表演讲</p>
+        </div>
+        <div class="news-card">
+          <img src="../assets/news4.png">
+          <h3>支持触觉反馈，Manus VR推出全新Prime VR手套</h3>
+          <p>第三届国际印刷工业发展论坛（Forum-PI 2013）于2013年5月13日在北京举行，主办方邀请了来自中国、美国、德国、英国、意大利、日本、澳大利亚、俄罗斯、印度、印尼、南非、巴西、</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- 联系我们 -->
   <iframe src="./contact-us/contact-us.html" style="width:100vw; height:220px; border:none; overflow:hidden"
     scrolling="no"></iframe>
 </body>
+
+<script src="./nav/nav.js"></script>
+<script src="./banner/banner.js"></script>
+
 
 </html>
