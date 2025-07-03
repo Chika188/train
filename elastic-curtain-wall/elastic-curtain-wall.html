@@ -21,17 +21,40 @@
             position: absolute;
             white-space: nowrap;
             animation-timing-function: linear;
-            animation-name: move;
+            /* animation-name: move; */
+            animation-name: danmu-appear;
             animation-duration: 10s;
         }
 
-        @keyframes move {
+        /* @keyframes move {
             from {
                 transform: translateX(-100%);
             }
 
             to {
                 transform: translateX(100vw);
+            }
+        } */
+
+        @keyframes danmu-appear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            90% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
             }
         }
 
@@ -47,6 +70,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
 
         input,
         button {
@@ -83,14 +107,26 @@
             // 随机参数
             const fontSize = Math.floor(getRandom(12, 36));
             const speed = getRandom(5, 15);
+            // const top = getRandom(5, 95);
+
+            // 随机定位
+            const left = getRandom(5, 95);
             const top = getRandom(5, 95);
 
+            // danmu.style.cssText = `
+            //                         font-size: ${fontSize}px;
+            //                         color: ${getContrastColor()};
+            //                         top: ${top}%;
+            //                         animation: move ${speed}s linear;
+            //                     `;
+
             danmu.style.cssText = `
-                                    font-size: ${fontSize}px;
-                                    color: ${getContrastColor()};
-                                    top: ${top}%;
-                                    animation: move ${speed}s linear;
-                                `;
+                        font-size: ${fontSize}px;
+                        color: ${getContrastColor()};
+                        left: ${left}%;
+                        top: ${top}%;
+                        animation-duration: 2s;
+                    `;
 
             document.getElementById('danmu-container').appendChild(danmu);
 
