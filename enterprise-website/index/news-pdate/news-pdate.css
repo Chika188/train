@@ -101,3 +101,18 @@
             animation: fadeIn 0.5s ease-in forwards;
             animation-delay: 0.3s;
         }
+
+        @media screen and (max-width: 768px) {
+            .header{
+                height: 150px;
+            }
+            .header-title {
+                font-size: 32px;
+            }
+            .news-card{
+                width: 100%;
+            }
+             .news-card-img{
+                height: 250px !important;
+            }
+        }

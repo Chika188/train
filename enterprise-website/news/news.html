@@ -380,6 +380,7 @@
     // 修改loadNews函数参数解析
     async function loadNews(page = parseInt(new URL(window.location.href).searchParams.get('page')) || 1, pageSize = parseInt(document.getElementById('pageSizeSelect').value)) {
         try {
+              window.history.replaceState(null, null, `?page=${page}`);
             const response = await fetch(`http://localhost:8080/news?page=${page}&pageSize=${pageSize}`);
             const { data, links } = await response.json();
 
@@ -494,6 +495,7 @@
                 if (!isNaN(targetPage)) {
                     const validPage = Math.max(1, Math.min(targetPage, totalPages));
                     if (validPage !== current) {
+                        history.replaceState(null, '', `?page=${validPage}`); 
                         pageJumpInput.value = ''; // 清空输入框
                         loadNews(validPage);
                     }
