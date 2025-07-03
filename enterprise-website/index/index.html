@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="./service-scope/service-scope.css">
   <link rel="stylesheet" href="./team-Introduction/team-Introduction.css">
   <link rel="stylesheet" href="./news-pdate/news-pdate.css">
+  <link rel="preload" href="../assets/ilustra-cicle.png" as="image">
 </head>
 
 <body>
@@ -60,7 +61,7 @@
   <div class="nav" style="width:100vw; height:215px; border:none; overflow:hidden;position: absolute; z-index: 2;">
     <div class="nav-container ">
       <div class="logo max-lg:top-[15px] max-lg:left-[25px] lg:top-[32px] lg:left-[48px]">
-        <img src="../assets/logo.png" alt="">
+        <img src="../assets/logo.png" alt="企业站logo">
         <div class="logo-text">企业站</div>
       </div>
 
@@ -93,8 +94,8 @@
   <div class="carousel" style="width:100vw; border:none; overflow:hidden" scrolling="no">
     <div class="slides">
       <div class="slide">
-        <img class="slides-img" src="../assets/banner1-xs.png" data-src-full="../assets/banner1.png"
-          style="width: 100%;">
+        <img class="slides-img" src="../assets/banner1-xs.png" data-src-full="../assets/banner1.webp"
+          style="width: 100%;" alt="开启互联网+ 从我们开始">
         <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[20vw] ">
           开启互联网+ 从我们开始</div>
         <div class="slide-content  mt-6
@@ -103,8 +104,8 @@
         </div>
       </div>
       <div class="slide">
-        <img class="slides-img" data-src-full="../assets/banner2.png" src="../assets/banner2-xs.png"
-          style="width: 100%;">
+        <img class="slides-img" data-src-full="../assets/banner2.webp" src="../assets/banner2-xs.png"
+          style="width: 100%;" alt="关于我们">
         <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[20vw] ">
           关于我们</div>
         <div class="slide-content  mt-6
@@ -113,8 +114,9 @@
         </div>
       </div>
       <div class="slide">
-        <img class="slides-img" data-src-full="../assets/banner3.png" src="../assets/banner3-xs.png"
-          style="width: 100%;">
+        <img class="slides-img" data-src-full="../assets/banner3.webp" src="../assets/banner3-xs.png"
+          style="width: 100%;" alt="新闻中心">
+
         <div class="slide-text  text-[4vw] md:text-[3vw] lg:text-[2.5vw] top-[20vw] ">
           新闻中心</div>
         <div class="slide-content  mt-6
@@ -134,7 +136,7 @@
   <div class="md:h-[1500px] max-md:h-[1200px]" style="width:100vw; border:none; overflow:hidden">
     <div class="service-bg">
       <div class="service-bg-title">Service scope
-        <img src="../assets/ilustra-cicle.png" alt="" loading="lazy">
+        <img src="../assets/ilustra-cicle.png" alt="服务范围" loading="lazy">
       </div>
       <div class="service-title">
         服务范围
@@ -149,16 +151,16 @@
       <!--   -->
       <div class="service-container">
         <div class="service-img-one">
-          <img src="../assets/Rectangle 4.png" alt="" loading="lazy">
+          <img src="../assets/Rectangle 4.webp" alt="" loading="lazy">
         </div>
         <div class="service-img-two">
-          <img src="../assets/Rectangle 5.png" alt="" loading="lazy">
+          <img src="../assets/Rectangle 5.webp" alt="" loading="lazy">
         </div>
         <div class="service-img-three">
-          <img src="../assets/Rectangle 6.png" alt="" loading="lazy">
+          <img src="../assets/Rectangle 6.webp" alt="" loading="lazy">
         </div>
         <div class="service-img-four">
-          <img src="../assets/Rectangle 7.png" alt="" loading="lazy">
+          <img src="../assets/Rectangle 7.webp" alt="" loading="lazy">
         </div>
       </div>
     </div>
@@ -184,7 +186,7 @@
 
     <div class="bottom-section grid grid-cols-3  max-lg:grid-cols-1">
       <div class="member-card mx-auto">
-        <img src="../assets/teacher1.png" loading="lazy">
+        <img src="../assets/teacher1.webp" loading="lazy"  alt="高级教师">
         <div class="member-info">
           <div class="member-name">Jon Smith</div>
           <div class="member-desc">特级教师，从事教育工作10年</div>
@@ -193,7 +195,7 @@
       </div>
 
       <div class="member-card mx-auto">
-        <img src="../assets/teacher2.png" loading="lazy">
+        <img src="../assets/teacher2.webp" loading="lazy"  alt="高级教师">
         <div class="member-info">
           <div class="member-name">Jon Smith</div>
           <div class="member-desc">特级教师，从事教育工作10年</div>
@@ -202,7 +204,7 @@
       </div>
 
       <div class="member-card mx-auto">
-        <img src="../assets/teacher3.png" loading="lazy">
+        <img src="../assets/teacher3.webp" loading="lazy" alt="高级教师">
         <div class="member-info">
           <div class="member-name">Jon Smith</div>
           <div class="member-desc">特级教师，从事教育工作10年</div>
@@ -227,23 +229,23 @@
                 max-lg:grid-cols-2
                 max-md:grid-cols-2">
         <div class="news-card">
-          <img class="news-card-img" src="../assets/news1.png" loading="lazy">
+          <img class="news-card-img" src="../assets/news1.webp" loading="lazy" alt="2022百度AI大会前夕，解读百度大脑的半年“豹变”">
           <h3>2022百度AI大会前夕，解读百度大脑的半年“豹变”</h3>
           <p>Facebook为未来的VR社交打造了一款逼真的虚拟头像系统，该系统的特点是，利用数百颗摄像头对人脸进行动作捕捉，并能生成与人脸相似度很高的虚拟头像，这些头像还能模仿人脸的大量表情。</p>
         </div>
         <div class="news-card">
-          <img class="news-card-img" src="../assets/news2.png" loading="lazy">
+          <img class="news-card-img" src="../assets/news2.webp" loading="lazy" alt="创投早报｜美国商业化核聚变创企获投；音乐版权公司完成融资">
 
           <h3>创投早报｜美国商业化核聚变创企获投；音乐版权公司完成融资</h3>
           <p>举办第六届中华印制大奖颁奖典礼、亚洲印刷展览联盟会议、国家主题日等多场专业、先进、丰富的同期活动，全面把握产业趋势与动态，共同探讨印刷业现状和未来。</p>
         </div>
         <div class="news-card">
-          <img class="news-card-img" src="../assets/news3.png" loading="lazy">
+          <img class="news-card-img" src="../assets/news3.webp" loading="lazy" alt="【千龙网】广告行业标准指导性意见将出台">
           <h3>【千龙网】广告行业标准指导性意见将出台</h3>
           <p>国际印刷工业发展论坛由中国印刷及设备器材工业协会主办，始创于2005年，四年一届，已成功举办三届，每届论坛选择5-6个发达国家和5-6个发展中国家印刷协会的主席或总裁发表演讲</p>
         </div>
         <div class="news-card">
-          <img class="news-card-img" src="../assets/news4.png" loading="lazy">
+          <img class="news-card-img" src="../assets/news4.webp" loading="lazy" alt="支持触觉反馈，Manus VR推出全新Prime VR手套">
           <h3>支持触觉反馈，Manus VR推出全新Prime VR手套</h3>
           <p>第三届国际印刷工业发展论坛（Forum-PI 2013）于2013年5月13日在北京举行，主办方邀请了来自中国、美国、德国、英国、意大利、日本、澳大利亚、俄罗斯、印度、印尼、南非、巴西、</p>
         </div>
@@ -252,7 +254,8 @@
   </div>
   <!-- 联系我们 -->
   <iframe src="./contact-us/contact-us.html" style="width:100vw; height:220px; border:none; overflow:hidden"
-    scrolling="no"></iframe>
+    scrolling="no" title="联系我们"></iframe>
+
 </body>
 
 <script src="./nav/nav.js"></script>

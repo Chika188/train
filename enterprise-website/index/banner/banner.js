@@ -97,7 +97,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.slide')[0].classList.add('active');
     leftDots[0].classList.add('active');
     startAutoPlay();
-    loadNews();
 });
 
 // === lazy
