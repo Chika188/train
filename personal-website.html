@@ -218,6 +218,33 @@
             color: #4299e1;
             transform: translateY(-2px);
         }
+
+        .avatar-info {
+            position: absolute;
+            top: 550px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            font-family: 'Brush Script MT', cursive;
+            text-shadow:
+                2px 2px 0 #ff6b6b,
+                -1px -1px 0 #4ecdc4,
+                0 0 20px rgba(255, 255, 255, 0.8);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            50% {
+                text-shadow:
+                    3px 3px 10px #ff6b6b,
+                    -2px -2px 10px #4ecdc4,
+                    0 0 30px rgba(255, 255, 255, 0.9);
+            }
+        }
     </style>
 </head>
 
@@ -240,6 +267,9 @@
             <div class="signature">
                 <div class="left-info">"代码改变世界"</div>
                 <div class="right-info">初级前端工程师</div>
+            </div>
+            <div class="avatar-info">
+                组件化是个绝妙的想法，让我们多多地使用它们吧！
             </div>
         </div>
     </div>
@@ -286,21 +316,25 @@
         <div class="card-container">
             <h2>兴趣爱好</h2>
             <div class="card-grid">
-                <div class="hobby-card">
+                <div class="hobby-card" style="background:url(./assets/personal/ming.png); background-size: cover;">
+                    <div class="card-bg"></div>
                     <div class="card-title">历史文学</div>
-                    <div class="card-desc">专注中国古代史研究，擅长唐宋文学分析</div>
+                    <div class="card-desc">专注中国古代史研究，热爱中国历史文化</div>
                 </div>
-                <div class="hobby-card">
+                <div class="hobby-card" style="background:url(./assets/personal/git.png); background-size: cover;">
+                    <div class="card-bg"></div>
                     <div class="card-title">博客论坛</div>
                     <div class="card-desc">关注互联网技术发展，参与技术论坛交流</div>
                 </div>
-                <div class="hobby-card">
+                <div class="hobby-card" style="background:url(./assets/personal/ping.png); background-size: cover;">
+                    <div class="card-bg"></div>
                     <div class="card-title">乒乓球</div>
                     <div class="card-desc">喜欢运动，热爱乒乓球</div>
                 </div>
-                <div class="hobby-card">
+                <div class="hobby-card" style="background:url(./assets/personal/daj.png); background-size: cover;">
+                    <div class="card-bg"></div>
                     <div class="card-title">科技产品</div>
-                    <div class="card-desc">喜欢科技产品，关注最新技术</div>
+                    <div class="card-desc">体验科技产品，关注最新技术</div>
                 </div>
             </div>
         </div>
@@ -323,7 +357,7 @@
                 <div class="bottom-item">
                     <div class="bottom-item-title">联系我</div>
                     <div class="bottom-item-content">
-                       <p> Email: example@domain.com</p>
+                        <p> Email: example@domain.com</p>
                         <p>GitHub: github.com/username</p>
                     </div>
                 </div>
