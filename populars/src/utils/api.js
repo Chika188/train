@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message  } from 'antd';
 
 const api = axios.create({
   baseURL: 'https://api.github.com',
@@ -27,14 +28,14 @@ api.interceptors.response.use(
       500: '服务器错误',
     }[status] || '网络连接异常';
 
-
+    if(status !== 200){
+      message.error(`加载失败: ${errorMessage}`);
+    }
     // // 特殊状态码处理
     // if (status === 401) {
     //   localStorage.removeItem('github_token');
     //   window.location.href = '/login';
     // }
-
-    return Promise.reject({ ...error, message: errorMessage });
   }
 );
 

@@ -1,6 +1,9 @@
 import styles from './nav.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function CommonNav({ selectedLanguage, onLanguageChange }) {
+
+  const navigate = useNavigate();
   const languages = ['all', 'javascript', 'ruby', 'java', 'css', 'python'];
 
   return (
@@ -16,7 +19,7 @@ export default function CommonNav({ selectedLanguage, onLanguageChange }) {
           </span>
         ))}
       </div>
-      <button className={styles.battleButton}>Battle →</button>
+      <button className={styles.battleButton} onClick={() => navigate('/battle')}>Battle →</button>
     </nav>
   );
 }

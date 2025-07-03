@@ -8,7 +8,7 @@ import {
   faCodeBranch,
   faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
-import { Row, Col, Spin,message  } from 'antd';
+import { Row, Col, Spin, message } from 'antd';
 
 
 export default function PopularProjects({ selectedLanguage }) {
@@ -58,8 +58,7 @@ export default function PopularProjects({ selectedLanguage }) {
         }
       });
 
-      // setProjects(prev => [...prev, ...response.data.items]);
-      setProjects(prev => [...new Set([...prev, ...response.data.items])]);
+      setProjects(prev => [...prev, ...response.data.items]);
     } catch (error) {
       if (error.message !== 'canceled') {
         message.error(`加载失败: ${error.message}`);
@@ -91,7 +90,8 @@ export default function PopularProjects({ selectedLanguage }) {
         wrapperClassName="loading-spinner"
         delay={500}
         size="large">
-        <Row gutter={[16, 16]}>
+        <Row gutter={[16, 16]} justify={projects.length % 4 !== 0 ? 'space-around' : 'start'}
+          wrap>
           {projects.map((project, index) => (
             <Col
               key={project.id}

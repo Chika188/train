@@ -7,9 +7,9 @@ import viteCompression from "vite-plugin-compression"
 export default defineConfig({
     build: { minify: "esbuild" }, // boolean | 'terser' | 'esbuild'
     resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src')
-    }
+      alias: {
+        '@': path.resolve(__dirname, './src')
+      }
   },
   plugins: [react(), viteCompression({ algorithm: "gzip",threshold: 10240})],
 })
