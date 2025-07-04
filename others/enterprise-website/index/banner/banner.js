@@ -100,21 +100,46 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // === lazy
-function loadFullSizeImage(img) {
-    const fullSrc = img.getAttribute('data-src-full');
-    if (!fullSrc) return;
+const loadTimers = new WeakMap();
 
-    // 先加载完移动端图片后再加载完整版
-    setTimeout(() => {
+function loadFullSizeImage(img) {
+    const fullSrc = img.dataset.srcFull;
+    if (!fullSrc || window.innerWidth < 768) return;
+
+    // 清除已有定时器
+    if(loadTimers.has(img)) {
+        clearTimeout(loadTimers.get(img));
+    }
+
+    const timer = setTimeout(() => {
         const tempImg = new Image();
         tempImg.onload = () => {
             img.style.opacity = 0;
             img.src = fullSrc;
             img.style.opacity = 1;
+            loadTimers.delete(img);
         };
         tempImg.src = fullSrc;
-    }, 3000); // 3秒后开始加载完整版
+    }, 3000);
+
+    loadTimers.set(img, timer);
 }
 
-// 在初始化轮播时调用
-document.querySelectorAll('.slides-img').forEach(loadFullSizeImage);
+// resize事件处理
+window.addEventListener('resize', () => {
+    const isMobile = window.innerWidth < 768;
+    
+    document.querySelectorAll('.slides-img').forEach(img => {
+        if(isMobile) {
+            // 移动端立即终止大图加载
+            if(loadTimers.has(img)) {
+                clearTimeout(loadTimers.get(img));
+                loadTimers.delete(img);
+            }
+            img.src = img.getAttribute('srcset').split(' ')[0];
+        } else {
+            // 桌面端触发延迟加载
+            loadFullSizeImage(img);
+        }
+    });
+});
