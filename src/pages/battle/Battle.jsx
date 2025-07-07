@@ -1,4 +1,4 @@
-import CommonNav from '@/pages/Battle/components/CommonNav.jsx';
+import CommonNav from '../battle/components/CommonNav';
 import './Battle.scss'
 import { faUserGroup, faTrophy, faPlane } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';

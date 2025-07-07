@@ -9,7 +9,7 @@ import '../popular/popular.scss';
 import './battle-result.scss'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CommonNav from '@/pages/Battle/components/CommonNav.jsx';
+import CommonNav from '../battle/components/CommonNav';
 import { Row, Col } from 'antd';
 
 
