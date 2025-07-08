@@ -21,12 +21,12 @@
             position: absolute;
             white-space: nowrap;
             animation-timing-function: linear;
-            /* animation-name: move; */
-            animation-name: danmu-appear;
+            animation-name: move;
+            /* animation-name: danmu-appear; */
             animation-duration: 10s;
         }
 
-        /* @keyframes move {
+        @keyframes move {
             from {
                 transform: translateX(-100%);
             }
@@ -34,7 +34,7 @@
             to {
                 transform: translateX(100vw);
             }
-        } */
+        }
 
         @keyframes danmu-appear {
             0% {
@@ -121,12 +121,20 @@
             //                         animation: move ${speed}s linear;
             //                     `;
 
-            danmu.style.cssText = `
+            // danmu.style.cssText = `
+            //             font-size: ${fontSize}px;
+            //             color: ${getContrastColor()};
+            //             left: ${left}%;
+            //             top: ${top}%;
+            //             animation-duration: 2s;
+            //         `;
+
+                        danmu.style.cssText = `
                         font-size: ${fontSize}px;
                         color: ${getContrastColor()};
                         left: ${left}%;
                         top: ${top}%;
-                        animation-duration: 2s;
+                         animation: move ${speed}s linear;
                     `;
 
             document.getElementById('danmu-container').appendChild(danmu);
