@@ -207,7 +207,7 @@
 
             <!-- 添加抽屉容器 -->
             <div
-                class="nav-drawer fixed top-0 left-0 h-full w-64 bg-black shadow-xl transform -translate-x-full transition-transform duration-300 lg:hidden">
+                class="nav-drawer fixed top-0 left-0 h-full w-64 bg-black shadow-xl transform -translate-x-full transition-transform duration-300 lg:hidden" style="z-index: 9999;">
                 <div class="p-6 space-y-4 h-full">
                     <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../index/index.html">首页</div>
                     <div class="nav-item p-3 hover:bg-gray-100 rounded-lg" data-target="../news/news.html">新闻列表页</div>
@@ -215,7 +215,7 @@
                 </div>
             </div>
             <!--  添加汉堡按钮 -->
-            <div class="lg:hidden max-lg:fixed max-lg:top-4 max-lg:right-4">
+            <div class="lg:hidden max-lg:absolute max-lg:top-4 max-lg:right-4">
                 <button id="menuBtn" class="p-5 rounded-lg text-white rounded-full hover:bg-blue-600 transition-colors">
                     ☰
                 </button>
