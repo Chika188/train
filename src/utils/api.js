@@ -29,7 +29,7 @@ api.interceptors.response.use(
     }[status] || '网络连接异常';
 
     if(status !== 200){
-      message.error(`加载失败: ${errorMessage}`);
+      // message.error(`加载失败: ${errorMessage}`);
     }
     // // 特殊状态码处理
     // if (status === 401) {

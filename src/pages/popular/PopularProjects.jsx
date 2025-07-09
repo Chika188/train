@@ -9,7 +9,7 @@ import {
   faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col, Spin, message } from 'antd';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 
 
 export default function PopularProjects({ selectedLanguage }) {
@@ -39,13 +39,13 @@ export default function PopularProjects({ selectedLanguage }) {
     return () => observer.disconnect();
   }, [handleObserver]);
 
-  // 创建节流3秒的错误提示函数
-  const throttledError = throttle(
-    () => message.error("未能获取项目数据，请稍后再试。"),
-    3000,
-    { leading: true, trailing: false }
+ // 创建节流版的 error 提示
+  const throttledError = useCallback(
+    throttle((msg) => {
+      message.error(msg);
+    }, 3000, { leading: true, trailing: false }),
+    []
   );
-
   /**
    * 分页加载项目
    */
@@ -66,22 +66,27 @@ export default function PopularProjects({ selectedLanguage }) {
         }
       });
 
-      if (response && Array.isArray(response.items)) {
+      if (response && Array.isArray(response.data.items)) {
         setProjects(prev => [...prev, ...response.data.items]);
       } else {
-        throttledError();
-
+          throttledError("未能获取项目数据，请稍后再试。");
       }
 
     } catch (error) {
       if (error.message !== 'canceled') {
-        throttledError();
+       throttledError("加载失败: " + error.message);
 
       }
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      throttledError.cancel();
+    };
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('selectedLanguage', selectedLanguage);
