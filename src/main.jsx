@@ -10,7 +10,6 @@ import PopularProjects from './pages/popular/PopularProjects.jsx';
 import { Suspense } from 'react';
 import React from 'react';
 
-
 const BattleResult = React.lazy(() => import('./pages/battle-result/battle-result.jsx'));
 const router = createHashRouter([
     {
