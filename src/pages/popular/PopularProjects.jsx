@@ -9,6 +9,7 @@ import {
   faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { Row, Col, Spin, message } from 'antd';
+import { throttle } from 'lodash';
 
 
 export default function PopularProjects({ selectedLanguage }) {
@@ -38,6 +39,13 @@ export default function PopularProjects({ selectedLanguage }) {
     return () => observer.disconnect();
   }, [handleObserver]);
 
+  // 创建节流3秒的错误提示函数
+  const throttledError = throttle(
+    () => message.error("未能获取项目数据，请稍后再试。"),
+    3000,
+    { leading: true, trailing: false }
+  );
+
   /**
    * 分页加载项目
    */
@@ -58,10 +66,17 @@ export default function PopularProjects({ selectedLanguage }) {
         }
       });
 
-      setProjects(prev => [...prev, ...response.data.items]);
+      if (response && Array.isArray(response.items)) {
+        setProjects(prev => [...prev, ...response.data.items]);
+      } else {
+        throttledError();
+
+      }
+
     } catch (error) {
       if (error.message !== 'canceled') {
-        message.error(`加载失败: ${error.message}`);
+        throttledError();
+
       }
     } finally {
       setLoading(false);
@@ -90,7 +105,7 @@ export default function PopularProjects({ selectedLanguage }) {
         wrapperClassName="loading-spinner"
         delay={500}
         size="large">
-        <Row gutter={[16, 16]} justify={projects.length % 4 !== 0 ? 'space-around' : 'start'}
+        <Row gutter={[16, 16]} justify={projects.length % 4 !== 0 ? 'space-evenly' : 'start'}
           wrap>
           {projects.map((project, index) => (
             <Col
@@ -99,6 +114,7 @@ export default function PopularProjects({ selectedLanguage }) {
               sm={12}
               md={8}
               lg={6}
+              style={{ margin: "auto" }}
             >
 
               <div key={project.id} className="project-card">
