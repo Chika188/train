@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-      var aa = 1;
+      var aa = 1
   var bb = 2;
 
   const [language, setLanguage] = useState(() => {

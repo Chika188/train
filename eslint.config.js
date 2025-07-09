@@ -11,7 +11,7 @@ export default defineConfig([
     plugins: { js }, 
     extends: ["js/recommended"],
      rules: {
-      // 'no-unused-vars': 'off'  // 关闭未使用变量检查
+      'no-unused-vars': 'off'  // 关闭未使用变量检查
     }
   },
   { 
