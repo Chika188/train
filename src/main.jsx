@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './pages/App.jsx'
 import '@ant-design/v5-patch-for-react-19';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Battle from './pages/battle/Battle.jsx';
 import PopularProjects from './pages/popular/PopularProjects.jsx';
 
@@ -12,7 +12,7 @@ import React from 'react';
 
 
 const BattleResult = React.lazy(() => import('./pages/battle-result/battle-result.jsx'));
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <App />,  // 确保App组件作为根路由
