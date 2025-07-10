@@ -11,7 +11,6 @@ import {
 import { Row, Col, Spin, message } from 'antd';
 import throttle from 'lodash/throttle';
 
-
 export default function PopularProjects({ selectedLanguage }) {
   const [projects, setProjects] = useState([]);
   const [page, setPage] = useState(1);
@@ -21,12 +20,30 @@ export default function PopularProjects({ selectedLanguage }) {
   const observerRef = useRef();
   const [init, setInit] = useState(false);
 
-  const handleObserver = useCallback((entries) => {
-    const target = entries[0];
-    if (target.isIntersecting && !loading && init) {
-      setPage(prev => prev + 1);
+  // localStorage缓存key
+  const CACHE_KEY = 'popular_language_cache';
+  // 初始化时从localStorage读取缓存
+  const [languageCache, setLanguageCache] = useState(() => {
+    try {
+      const cache = localStorage.getItem(CACHE_KEY);
+      if (cache) {
+        return JSON.parse(cache);
+      }
+    } catch (e) {
+      console.error('Failed to parse language cache from localStorage:', e);
     }
-  }, [loading]);
+    return { queue: [], data: {} };
+  });
+
+  const handleObserver = useCallback(
+    (entries) => {
+      const target = entries[0];
+      if (target.isIntersecting && !loading && init) {
+        setPage((prev) => prev + 1);
+      }
+    },
+    [loading, init]
+  );
 
   useEffect(() => {
     const option = {
@@ -39,43 +56,76 @@ export default function PopularProjects({ selectedLanguage }) {
     return () => observer.disconnect();
   }, [handleObserver]);
 
- // 创建节流版的 error 提示
+  // 创建节流版的 error 提示
   const throttledError = useCallback(
-    throttle((msg) => {
-      message.error(msg);
-    }, 3000, { leading: true, trailing: false }),
+    throttle(
+      (msg) => {
+        message.error(msg);
+      },
+      3000,
+      { leading: true, trailing: false }
+    ),
     []
   );
   /**
    * 分页加载项目
+   * @param {number} customPage
+   * @param {string} customLang
+   * @param {boolean} isFirstPage
    */
-  const fetchProjects = async () => {
+  const fetchProjects = async (
+    customPage = page,
+    customLang = selectedLanguage,
+    isFirstPage = false
+  ) => {
     setLoading(true);
     try {
-      const q = selectedLanguage === 'all'
-        ? 'stars:>1'
-        : `stars:>1 language:${selectedLanguage}`;
-
-      const response = await api.get('/search/repositories', {
-        params: {
-          q,
-          sort: 'stars',
-          order: 'desc',
-          page,
-          per_page: 10
-        }
-      });
-
-      if (response && Array.isArray(response.data.items)) {
-        setProjects(prev => [...prev, ...response.data.items]);
+      // 检查缓存中是否有该语言的数据
+      if (languageCache.data[customLang] && customPage === 1) {
+        setProjects(languageCache.data[customLang]);
+        return;
       } else {
-          throttledError("未能获取项目数据，请稍后再试。");
-      }
+        const q = customLang === 'all' ? 'stars:>1' : `stars:>1 language:${customLang}`;
 
+        const response = await api.get('/search/repositories', {
+          params: {
+            q,
+            sort: 'stars',
+            order: 'desc',
+            page: customPage,
+            per_page: 10
+          }
+        });
+
+        if (response && Array.isArray(response.data.items)) {
+          setProjects((prev) =>
+            isFirstPage ? response.data.items : [...prev, ...response.data.items]
+          );
+
+          // 更新缓存
+          setLanguageCache((prev) => {
+            const newQueue = [...prev.queue];
+            const newData = { ...prev.data };
+            // 维护缓存队列
+            if (newQueue.length >= 3) {
+              const oldestLang = newQueue.shift();
+              delete newData[oldestLang];
+            }
+
+            if (!newQueue.includes(customLang)) {
+              newQueue.push(customLang);
+              newData[customLang] = response.data.items;
+            }
+
+            return { queue: newQueue, data: newData };
+          });
+        } else {
+          throttledError('未能获取项目数据，请稍后再试。');
+        }
+      }
     } catch (error) {
       if (error.message !== 'canceled') {
-       throttledError("加载失败: " + error.message);
-
+        throttledError('加载失败: ' + error.message);
       }
     } finally {
       setLoading(false);
@@ -88,51 +138,54 @@ export default function PopularProjects({ selectedLanguage }) {
     };
   }, []);
 
+  // languageCache变化时写入localStorage
   useEffect(() => {
-    localStorage.setItem('selectedLanguage', selectedLanguage);
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(languageCache));
+    } catch (e) {
+      console.error('Failed to save language cache to localStorage:', e);
+    }
+  }, [languageCache]);
+
+  // 切换语言时，立即请求第一页
+  useEffect(() => {
     setProjects([]);
     setPage(1);
+    setInit(false);
+    fetchProjects(1, selectedLanguage, true);
   }, [selectedLanguage]);
 
-
+  // 监听 page，page>1 时请求数据
   useEffect(() => {
-    fetchProjects();
+    fetchProjects(page, selectedLanguage);
     setInit(true);
-  }, [page, selectedLanguage]);
+  }, [page]);
 
   return (
-    <div className="container">
+    <div className='container'>
       {/* 项目网格 */}
       {/* <div className="project-grid"> */}
       <Spin
         spinning={loading}
-        tip="加载中..."
-        wrapperClassName="loading-spinner"
+        tip='加载中...'
+        wrapperClassName='loading-spinner'
         delay={500}
-        size="large">
-        <Row gutter={[16, 16]} justify={projects.length % 4 !== 0 ? 'space-evenly' : 'start'}
-          wrap>
+        size='large'
+      >
+        <Row gutter={[16, 16]} justify={projects.length % 4 !== 0 ? 'space-evenly' : 'start'} wrap>
           {projects.map((project, index) => (
-            <Col
-              key={project.id}
-              xs={24}
-              sm={12}
-              md={8}
-              lg={6}
-              style={{ margin: "auto" }}
-            >
-
-              <div key={project.id} className="project-card">
+            <Col key={project.id} xs={24} sm={12} md={8} lg={6} style={{ margin: 'auto' }}>
+              <div key={project.id} className='project-card'>
                 <div className='project-rank'>#{index + 1}</div>
                 <img
                   src={project.owner.avatar_url}
                   alt={project.name}
-                  loading="lazy"
-                  className="project-image"
+                  loading='lazy'
+                  className='project-image'
                 />
                 <h3 className='project-name'>{project.name}</h3>
                 {/* <p>{project.description}</p> */}
-                <div className="stats">
+                <div className='stats'>
                   <div>
                     <FontAwesomeIcon
                       icon={faUser}

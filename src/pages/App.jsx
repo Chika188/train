@@ -4,10 +4,6 @@ import PopularProjects from './popular/PopularProjects';
 import { useEffect, useState } from 'react';
 
 function App() {
-  var aa =
-    '11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111';
-  var bb = 2;
-
   const [language, setLanguage] = useState(() => {
     return localStorage.getItem('selectedLanguage') || 'all';
   });
@@ -19,7 +15,7 @@ function App() {
   return (
     <>
       <CommonNav selectedLanguage={language} onLanguageChange={setLanguage}></CommonNav>
-      <PopularProjects selectedLanguage={language} onLanguageChange={setLanguage}></PopularProjects>
+      <PopularProjects selectedLanguage={language}></PopularProjects>
     </>
   );
 }
