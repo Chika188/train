@@ -1,13 +1,11 @@
-
-import './App.css'
-import CommonNav from './components/CommonNav'
-import PopularProjects from './popular/PopularProjects'
+import './App.css';
+import CommonNav from './components/CommonNav';
+import PopularProjects from './popular/PopularProjects';
 import { useEffect, useState } from 'react';
 
-
 function App() {
-
-      var aa = 1
+  var aa =
+    '11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111';
   var bb = 2;
 
   const [language, setLanguage] = useState(() => {
@@ -20,16 +18,10 @@ function App() {
 
   return (
     <>
-      <CommonNav
-        selectedLanguage={language}
-        onLanguageChange={setLanguage} >
-      </CommonNav>
-      <PopularProjects
-        selectedLanguage={language}
-        onLanguageChange={setLanguage} >
-      </PopularProjects>
+      <CommonNav selectedLanguage={language} onLanguageChange={setLanguage}></CommonNav>
+      <PopularProjects selectedLanguage={language} onLanguageChange={setLanguage}></PopularProjects>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
